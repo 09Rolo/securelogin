@@ -1,10 +1,5 @@
 @echo off
-title SecureLogin
-mode con cols=10 lines=10
 
-cd %cd%
+start "" /min "C:\-Rolo-\Asztal\Asztal\Programming\_startuphoz\securelogin\pythonstarter.bat"
 
-python securelogin.py
-
-start "" securelogin_start.bat
 exit
