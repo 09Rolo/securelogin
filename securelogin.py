@@ -32,15 +32,21 @@ while 1 == 1:
                 if (iconsetted == False):
                     try:
                         iconsetted = True
+                        os.system(f'attrib +s "{dict}/imhere"')
 
                         shutil.copy(f"{os.getcwd()}/ficon.ico", f"{dict}/imhere")
 
+                        while not os.path.exists(f"{dict}/imhere/ficon.ico"):
+                            time.sleep(1)
+
+                        time.sleep(1)
+
                         with open(f"{dict}/imhere/desktop.ini", "w") as file:
-                            file.write(f"[.ShellClassInfo]\nIconFile=ficon.ico\nIconResource=" + dict.replace("/", "\\") + "\\imhere\\ficon.ico,0")
+                            os.system(f'attrib +s +h "{dict}/imhere/desktop.ini"')
+                            time.sleep(1)
+                            file.write("[.ShellClassInfo]\nIconFile=ficon.ico\nIconResource=" + dict.replace("/", "\\") + "\\imhere\\ficon.ico,0")
                             file.close()
 
-                        os.system(f'attrib +s "{dict}/imhere"')
-                        os.system(f'attrib +s +h "{dict}/imhere/desktop.ini"')
                     except:
                         print("")
 
