@@ -7,6 +7,7 @@ import shutil
 iconsetted = False
 currdict = os.getcwd()
 dict = str(open(f"{currdict}/directory.txt", "r").read())
+dict = dict.replace("\\", "/")
 
 while 1 == 1:
     time.sleep(9)
@@ -23,7 +24,7 @@ while 1 == 1:
             os.rmdir(f'{dict}/imhere')
     else:
         if dict == None:
-            print("Nincs asztal hely megadva. A directory fileba másold be az asztal helyét (pl: C:/-Rolo-/Asztal) (Ha lehet ne használj \\ -t, inkább /-t, ugyan az)")
+            print("Nincs asztal hely megadva. A directory fileba másold be az asztal helyét (pl: C:/-Rolo-/Asztal)")
         else:
             time.sleep(3)
 
@@ -34,7 +35,7 @@ while 1 == 1:
                     shutil.copy(f"{os.getcwd()}/ficon.ico", f"{dict}/imhere")
 
                     with open(f"{dict}/imhere/desktop.ini", "w") as file:
-                        file.write(f"[.ShellClassInfo]\nIconFile=ficon.ico\nIconResource={dict.replace('/', '\\')}\\imhere\\ficon.ico,0")
+                        file.write(f"[.ShellClassInfo]\nIconFile=ficon.ico\nIconResource=" + dict + "\\imhere\\ficon.ico,0")
                         file.close()
 
                     os.system(f'attrib +s +r "{dict}/imhere"')
