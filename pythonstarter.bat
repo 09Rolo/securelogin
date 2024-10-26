@@ -1,6 +1,6 @@
 @echo off
 title SecureLogin
-mode con cols=15 lines=10
+mode con cols=20 lines=2
 
 cd %cd%
 
