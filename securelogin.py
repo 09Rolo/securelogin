@@ -35,7 +35,7 @@ while 1 == 1:
                     shutil.copy(f"{os.getcwd()}/ficon.ico", f"{dict}/imhere")
 
                     with open(f"{dict}/imhere/desktop.ini", "w") as file:
-                        file.write(f"[.ShellClassInfo]\nIconFile=ficon.ico\nIconResource=" + dict + "\\imhere\\ficon.ico,0")
+                        file.write(f"[.ShellClassInfo]\nIconFile=ficon.ico\nIconResource=" + dict.replace("/", "\\") + "\\imhere\\ficon.ico,0")
                         file.close()
 
                     os.system(f'attrib +s +r "{dict}/imhere"')
